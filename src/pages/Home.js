@@ -1,14 +1,16 @@
 import { useProducts } from '../services/getProducts';
 import { Product } from '../components/Product';
+import { AtomTitle } from '../components/atoms/AtomTitle';
+import { AtomMain } from '../components/atoms/AtomMain';
 
 export const Home = () => {
     const products = useProducts({ route: `/products` })
     return (
-        <main>
-            <h1>Products</h1>
+        <AtomMain>
+            <AtomTitle>Products</AtomTitle>
             <section>
                 {products.map(currentProduct => <Product props={currentProduct} />)}
             </section>
-        </main>
+        </AtomMain>
     );
 }
